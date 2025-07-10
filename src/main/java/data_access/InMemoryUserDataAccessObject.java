@@ -20,7 +20,7 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
 
     private final Map<String, User> users = new HashMap<>();
 
-    private String currentUsername;
+    private String currentUser;
 
     @Override
     public boolean existsByName(String identifier) {
@@ -44,12 +44,12 @@ public class InMemoryUserDataAccessObject implements SignupUserDataAccessInterfa
     }
 
     @Override
-    public void setCurrentUsername(String name) {
-        this.currentUsername = name;
+    public void setCurrentUser(String name) {
+        this.currentUser = name;
     }
 
     @Override
-    public String getCurrentUsername() {
-        return this.currentUsername;
+    public String getCurrentUser() {
+        return this.currentUser;
     }
 }

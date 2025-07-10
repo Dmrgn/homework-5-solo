@@ -6,8 +6,6 @@ import entity.User;
 import entity.UserFactory;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoginInteractorTest {
@@ -53,7 +51,7 @@ class LoginInteractorTest {
         LoginOutputBoundary successPresenter = new LoginOutputBoundary() {
             @Override
             public void prepareSuccessView(LoginOutputData user) {
-                assertEquals("Paul", userRepository.getCurrentUsername());
+                assertEquals("Paul", userRepository.getCurrentUser());
             }
 
             @Override
@@ -63,7 +61,7 @@ class LoginInteractorTest {
         };
 
         LoginInputBoundary interactor = new LoginInteractor(userRepository, successPresenter);
-        assertEquals(null, userRepository.getCurrentUsername());
+        assertEquals(null, userRepository.getCurrentUser());
 
         interactor.execute(inputData);
     }

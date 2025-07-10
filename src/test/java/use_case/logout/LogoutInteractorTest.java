@@ -19,7 +19,7 @@ class LogoutInteractorTest {
         UserFactory factory = new CommonUserFactory();
         User user = factory.create("Paul", "password");
         userRepository.save(user);
-        userRepository.setCurrentUsername("Paul");
+        userRepository.setCurrentUser("Paul");
 
         // This creates a successPresenter that tests whether the test case is as we expect.
         LogoutOutputBoundary successPresenter = new LogoutOutputBoundary() {
@@ -38,7 +38,7 @@ class LogoutInteractorTest {
         LogoutInputBoundary interactor = new LogoutInteractor(userRepository, successPresenter);
         interactor.execute(inputData);
         // check that the user was logged out
-        assertNull(userRepository.getCurrentUsername());
+        assertNull(userRepository.getCurrentUser());
     }
 
 }
